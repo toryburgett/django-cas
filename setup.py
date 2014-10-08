@@ -33,7 +33,7 @@ to the admin interface.
 .. _CAS: http://www.ja-sig.org/products/cas/
 .. _Django: http://www.djangoproject.com/
 """,
-    name='django_cas',
+    name='django-cas-hz',
     packages=['django_cas'],
     url='https://github.com/castlabs/django-cas',
     version='2.1.1',
