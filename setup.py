@@ -36,5 +36,5 @@ to the admin interface.
     name='django-cas-hz',
     packages=['django_cas'],
     url='https://github.com/castlabs/django-cas',
-    version='2.1.1',
+    version='2.1.2',
 )
