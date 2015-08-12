@@ -5,11 +5,18 @@ from urlparse import urljoin
 
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
-from django_cas.models import User, Tgt, PgtIOU
+from django_cas.models import Tgt, PgtIOU
 from django_cas import CAS
 
 __all__ = ['CASBackend']
 
+
+try:
+    from django.contrib.auth import get_user_model
+except ImportError:
+    from django.contrib.auth.models import User
+else:
+    User = get_user_model()
 
 
 def _verify_cas1(ticket, service):
@@ -108,7 +115,7 @@ def verify_proxy_ticket(ticket, service):
             return None
     finally:
         page.close()
-    
+
 
 _PROTOCOLS = {'1': _verify_cas1, '2': _verify_cas2}
 
@@ -148,4 +155,3 @@ class CASBackend(object):
             return User.objects.get(pk=user_id)
         except User.DoesNotExist:
             return None
-

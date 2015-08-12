@@ -8,12 +8,6 @@ from django_cas.exceptions import CasTicketException, CasConfigException
 from django.db.models.signals import post_save
 from datetime import datetime, timedelta
 from django_cas import CAS
-try:
-    from django.contrib.auth import get_user_model
-except ImportError:
-    from django.contrib.auth.models import User
-else:
-    User = get_user_model()
 
 
 class Tgt(models.Model):
@@ -67,7 +61,7 @@ def get_tgt_for(user):
         raise CasTicketException("no ticket found for user " + user.username)
 
 def delete_old_tickets(**kwargs):
-    """ Delete tickets if they are over 2 days old 
+    """ Delete tickets if they are over 2 days old
         kwargs = ['raw', 'signal', 'instance', 'sender', 'created']
     """
     sender = kwargs.get('sender', None)
