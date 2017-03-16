@@ -1,6 +1,5 @@
 """CAS authentication middleware"""
-
-from urllib import urlencode
+from six.moves.urllib.parse import urlencode
 
 from django.http import HttpResponseRedirect, HttpResponseForbidden
 from django.conf import settings

@@ -1,7 +1,7 @@
 """CAS login/logout replacement views"""
+from six.moves.urllib.parse import urljoin, urlencode
+
 from datetime import datetime
-from urllib import urlencode
-from urlparse import urljoin
 from django.contrib import messages
 from django.http import HttpResponseRedirect, HttpResponseForbidden, HttpResponse
 from django.conf import settings
@@ -129,4 +129,3 @@ def proxy_callback(request):
         return HttpResponse('PGT storage failed for %s' % str(request.GET), mimetype="text/plain")
 
     return HttpResponse('Success', mimetype="text/plain")
-

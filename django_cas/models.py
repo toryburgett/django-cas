@@ -1,5 +1,6 @@
-from urlparse import urljoin
-from urllib import urlencode, urlopen
+from six.moves.urllib.request import urlopen
+from six.moves.urllib.parse import urljoin, urlencode
+
 from django.db import models
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
