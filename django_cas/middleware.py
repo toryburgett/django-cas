@@ -17,7 +17,7 @@ class CASMiddleware(object):
     def process_request(self, request):
         """Logs in the user if a ticket is append as parameter"""
 
-        ticket = request.REQUEST.get('ticket')
+        ticket = request.GET.get('ticket')
 
         if ticket:
             from django.contrib import auth
