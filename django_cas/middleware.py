@@ -25,9 +25,6 @@ class CASMiddleware(object):
             if user is not None:
                 auth.login(request, user)
 
-
-
-
     def process_view(self, request, view_func, view_args, view_kwargs):
         """Forwards unauthenticated requests to the admin page to the CAS
         login URL, as well as calls to django.contrib.auth.views.login and
